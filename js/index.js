@@ -34,7 +34,7 @@ const back = document.getElementById('go_back');
 const forward = document.getElementById('go_forward');
 let num  = 0;
 forward.addEventListener('click',function(){
-	if(num == 7) {
+	if(num == 6) {
 		num = 0;
 	} else {
 		num ++;
@@ -53,3 +53,15 @@ back.addEventListener('click',function(){
 	}
 	slideshow.src=pics_src[num]
 })
+
+
+/*****jquery*****/
+$('#slide-area').hover(
+	function(){
+		$('.hide').css('display','block');
+	},
+	
+	function(){
+		$('.hide').css('display','none');
+	}
+)

@@ -1,21 +1,19 @@
-* {
-	width: 100%;
+*, body, #main {
 	height: 100%;
-}
-
-body {
+	width: 100%;
 	margin: 0;
 }
 
 .main-content {
 	position: relative;
+	width: 100%;
+	overflow-x: hidden;
 }
 
 .header-area {
 	height: 80px;
 	width: 100%;
-	background: #fff;
-	border-bottom: 1px solid #ededf3;
+	background: #dddde333;
 	color: #6e6d7a;
 }
 
@@ -29,11 +27,12 @@ body {
 .flex-area {
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: center;
 }
 
 .select-box {
-	height: 250px;
-	width: 350px;
+	width: 400px;
+	height: 300px;
 	margin: 30px;
 	border-radius: 15px;
 }
@@ -56,48 +55,64 @@ body {
 	font-weight: bold;
 }
 
-#mask {
-	/* background: rgba(0, 0, 0, 0.7); */
-	background: #a39fd682;
-	position: fixed;
-	top: 0;
-	bottom: 0;
-	right: 0;
-	left: 0;
-	z-index: 1;
-}
-
-#modal {
-	background: #fff;
-	color: #555;
-	width: 900px;
-	height: 450px;
-	padding: 40px 40px 0px 40px;
-	border-radius: 4px;
-	position: absolute;
-	top: 40px;
-	left: 0;
-	right: 0;
-	margin: 0 auto;
-	z-index: 2; 
-}
-
-#mask.hidden {
-	display: none;
-}
-
-#modal.hidden {
-	display: none;
-}
-
 button {
 	width: 100px;
 	height: 50px;
 }
 
-#slidshow {
+.icon { 
+	color: #fff;
+}
+
+.icon-angle {
+	color: #262536d9;
+}
+
+.content-wrap {
 	width: 100%;
-	height: 80%;
+	height: 750px;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-sizing: border-box;
+}
+
+#slide-area {
+	width: 860px;
+	height: 690px;
+	border: 1px solid #dddde3;
+}
+
+.button-area {
+	position: absolute;
+	top: 87%;	
+    width: 860px;
+    height: 50px;
+    background: #262536d9;
+	padding: 9px 1px;
+	text-align: center;
+}
+
+.angle {
+	position: absolute;
+	width: 120px;
+	height: 120px;
+	padding: 5px 8px;
+}
+
+.angle-left {
+	top: 40%;	
+	left: 21%;
+}
+
+.angle-right {
+	top: 40%;
+	right: 16%;
+}
+
+.hide {
+	display: none;
 }
 
 @media screen and (max-width: 1023px) {

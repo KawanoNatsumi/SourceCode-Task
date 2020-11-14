@@ -4,6 +4,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<title></title>
 	<link rel='stylesheet' href='../css/index.css'>
+	<link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" rel="stylesheet">
+	<script
+  src="https://code.jquery.com/jquery-3.5.1.js"
+  integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+  crossorigin="anonymous"></script>
 </head>
 <body>
 	<div id="main">
@@ -14,13 +19,28 @@
 				</div>
 			</div>
 			<div class="content-area">
-						<!-- modal -->
-					<img src="../img/test1.jpg" id="slideshow">
-					<div class="button-area"><button type="button" id="startstopbtn">開始/停止</button>
-						<button id="close">	閉じる </button>
-						<button type="button" value="戻る" id="go_back">
-						<button type="button" value="進む" id="go_forward">
+				<div class="content-wrap">
+					<div id="slide-area">
+						<img src="../img/test1.jpg" id="slideshow">
 					</div>
+					<!-- <div class="slide-area">
+						<img src="../img/test1.jpg" id="slideshow">
+					</div>
+					<div class="footer-button-area">
+						<a href="#" id="go_back"><img src="../img/left.png" class="icon icon-small"></a>
+						<a href="#" id="startstopbtn"><img src="../img/play.png" class="icon"></a>
+						<a href="#" id="go_forward"><img src="../img/right.png" class="icon icon-small"></a>
+					</div> -->
+					<div class="angle angle-left hide">
+						<a href="#" id="go_back"><i class="fas fa-caret-left fa-6x icon-angle"></i></a>
+					</div>
+					<div class="angle angle-right hide">
+						<a href="#" id="go_forward"><i class="fas fa-caret-right fa-6x icon-angle"></i></a>
+					</div>
+					<div class="button-area hide">
+						<a href="#" id="startstopbtn"><i class="fas fa-play-circle fa-3x icon"></i></a>
+					</div>
+					<!-- <a href="#" id="go_forward"><i class="fas fa-volume-up fa-2x fa-pull-right icon"></i></a> -->
 				</div>
 			</div>
 		</div>
