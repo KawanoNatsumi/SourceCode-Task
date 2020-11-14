@@ -55,17 +55,15 @@
 	font-weight: bold;
 }
 
-button {
+/* button {
 	width: 100px;
 	height: 50px;
-}
+} */
 
 .icon { 
-	color: #fff;
-}
-
-.icon-angle {
-	color: #262536d9;
+	color: #33333ccc;
+	cursor: pointer;
+	margin: 0px 5px;
 }
 
 .content-wrap {
@@ -74,46 +72,62 @@ button {
 	position: relative;
 	display: flex;
 	justify-content: center;
-	align-items: center;
 	box-sizing: border-box;
 }
 
 #slide-area {
-	width: 860px;
-	height: 690px;
+	width: 840px;
+	height: 630px;
 	border: 1px solid #dddde3;
 }
 
-.button-area {
+.play-area {
 	position: absolute;
-	top: 87%;	
-    width: 860px;
-    height: 50px;
-    background: #262536d9;
-	padding: 9px 1px;
-	text-align: center;
+    width: 840px;
+    height: auto;
+    bottom: 15px;
+    border: 1px solid gray;
 }
+
+.wrapp{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+} 
 
 .angle {
-	position: absolute;
-	width: 120px;
-	height: 120px;
-	padding: 5px 8px;
+	width: auto;
+	margin: 20px;
+	display: flex;
 }
 
-.angle-left {
-	top: 40%;	
-	left: 21%;
-}
-
-.angle-right {
-	top: 40%;
-	right: 16%;
-}
-
-.hide {
+#gain-value {
 	display: none;
 }
+
+.range {
+	width: 120px;
+	margin: auto;
+}
+
+.volume-area {
+    position: absolute;
+    display: flex;
+    width: 170px;
+    height: 30px;
+    bottom: 7%;
+    right: 27%;
+    cursor: pointer;
+}
+
+.volume-icon {
+	font-size: 30px;
+}
+
+.volume-area .hide {
+	display: none;
+}
+
 
 @media screen and (max-width: 1023px) {
 	.top-icon {
