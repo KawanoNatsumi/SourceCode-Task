@@ -1,19 +1,20 @@
 *, body, #main {
 	width: 100%;
 	height: 100%;
+	padding: 0;
 	margin: 0;
 }
 
 .main-content {
 	position: relative;
 	width: 100%;
-	overflow-x: hidden;
+	/* overflow-x: hidden; */
 }
 
 .header-area {
 	width: 100%;
-	height: 80px;
-	background: #dddde333;
+	height: 70px;
+	border-bottom: 1px solid #dddde3a3;
 	color: #6e6d7a;
 }
 
@@ -31,10 +32,13 @@
 }
 
 .select-box {
-	width: 400px;
+	/* width: 400px;
 	height: 300px;
-	margin: 30px;
-	border-radius: 15px;
+	margin: 20px;
+	border-radius: 15px; */
+	width: 40%;
+    height: 35%;
+    margin: 15px;
 }
 
 .img-area {
@@ -59,7 +63,7 @@
 	margin: 0px 5px;
 	color: #33333ccc;
 	cursor: pointer;
-	font-size: 5em;
+	/* font-size: 3em; */
 }
 
 .content-wrap {
@@ -71,7 +75,7 @@
 
 #slide-area {
 	display: flex;
-	/* border: 1px solid #dddde3; */
+	background:#FFF;
 	overflow: auto;
 	scroll-snap-type: x mandatory;
 }
@@ -98,7 +102,7 @@
 	position: absolute;
     width: 840px;
     height: auto;
-    top: 70%;
+    top: 80%;
     /* border: 1px solid gray; */
 }
 
@@ -129,42 +133,34 @@
 	width: 170px;
 }
 
-.volume-icon {
+/* .volume-icon {
 	font-size: 30px;
-}
+} */
 
-@media screen and (max-height: 1366px) {
-	#slide-area {
-		margin-top: 15%;
+@media screen and (max-width: 1024px) {
+	.slideshow-area {
+		width: 960px;
+		height: 720px;
 	}
 
 	.play-area {
-		width: 768px;
-		top: 52%;
-	}
-
-	.angle .icon {
-		font-size: 50px;
+		position: absolute;
+		width: 70%;
+		height: auto;
+		top: 60%
 	}
 }
 
-@media screen and (max-height: 896px) {
-	.header-area {
-		height: 50px;
-	}
+@media screen and (max-width: 896px) {
 
 	.slideshow-area {
-		width: 400px;
-		height: 300px;
+		width: 768px;
+		height: 672px;
 	}
 
 	.play-area {
-		width: 375px;
-		top: 50%;
-	}
-
-	.angle .icon {
-		font-size: 20px;
+		width: 70%;
+		top: 55%;
 	}
 
 	.range {
@@ -172,19 +168,48 @@
 	}
 }
 
-@media screen and (max-height: 568px) {
+@media screen and (max-width: 768px) {
 	.slideshow-area {
-		width: 280px;
-		height: 210px;
+		width: 728px;
+		height: 672px;
 	}
 
 	.play-area {
-		width: 375px;
-		top: 45%;
+		width: 70%;
+		top: 65%;
 	}
 
-	.angle .icon {
-		font-size: 20px;
+	.range {
+		width: 100px;
+	}
+}
+
+@media screen and (max-width: 540px) {
+
+	.slideshow-area {
+		width: 500px;
+		height: 375px;
+	}
+
+	.play-area {
+		width: 70%;
+		top: 65%;
+	}
+
+	.range {
+		width: 100px;
+	}
+}
+
+@media screen and (max-width: 414px) {
+	.slideshow-area {
+		width: 360px;
+		height: 270px;
+	}
+
+	.play-area {
+		width: 70%;
+		top: 50%;
 	}
 
 	.range {
@@ -193,3 +218,19 @@
 	
 }
 
+@media screen and (max-width: 325px) {
+	.slideshow-area {
+		width: 300px;
+		height: 225px;
+	}
+
+	.play-area {
+		width: 70%;
+		top: 40%;
+	}
+
+	.range {
+		width: 70px;
+	}
+	
+}
