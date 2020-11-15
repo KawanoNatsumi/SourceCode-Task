@@ -1,124 +1,182 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset='UTF-8'>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<title></title>
-	<link rel='stylesheet' href='../css/index.css'>
-	<link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" rel="stylesheet">
-	<link rel="shortcut icon" href="favicon.ico">
+<head lang="ja">
+<meta charset="UTF-8">
+<link rel="shortcut icon" href="favicon.ico">
+<title>スマホのタッチイベントで画像の拡大・縮小・移動</title>
 </head>
-<style>
-.container {
-scroll-snap-type: x mandatory;
-  overflow: auto;
-  scroll-snap-type: x;
- 
-}
-.area {
-  height: 100vh;
-  width: 100vw;
-  flex: none;
-  scroll-snap-align:center;
-}
-
-/* General Styling */
-body {
-  font-size: 4rem;
-  text-align: center;
-  color: #fff;
-}
-/* h1 {
-  font-size: 2rem;
-  margin-bottom: 2rem;
-}
-.area:nth-child(even) {
-  background-color: #0db;
-}
-.area:nth-child(odd) {
-  background-color: #0bd;
-} */
-</style>
-
 <body>
- <div class="container">
-  <div class="area">
-    <img src="../img/test1.jpg">
-  </div>
-  <div class="area">
-    <img src="../img/test2.jpg">
-  </div>
-  <div class="area">
-    <img src="../img/test3.jpg">
-  </div>
-  <div class="area">
-    <img src="../img/test4.jpg">
-  </div>
-  <div class="area">
-    <img src="../img/test5.jpg">
-  </div>
+    <!-- onLoad="BodyOnLoad()" -->
+<div id="test">
+<img class="test" src="../img/test1.jpg"/>
 </div>
 
+<button class="play">play</button>
+<button id="pause">pause</button>
+<audio src="../music/backmusic.mp3" id="audio"></audio>
 
-    <!-- <div class="snap">
-        <div>
-        <img src="../img/test1.jpg">
-        <div>
-            <img src="../img/test2.jpg">
-        </div>
-        <div>
-            <img src="../img/test3.jpg">
-        </div>
-        <div>
-            <img src="../img/test4.jpg">
-        </div>
-        <div>
-          <img src="../img/test5.jpg">
-        </div>
-      </div> -->
-    
-<script text="javascript">
+<input id="gain" class="range" type="range" min="0" max="3" step="0.01" value="1">
+<span id="gain-value"></span>
+</body>
+<script>
+// function BodyOnLoad() {
+ 
+//     var ratio=1;
+//     var test = document.getElementsByClassName('test')
+//     var w = test.width;
+//     var h = test.height;
+//     // document.getElementById('test').style.position ='fixed';
+//     // document.getElementById('test').style.left = '10px';
+//     // document.getElementById('test').style.top = '10px';
+//     document.getElementsByClassName('test').style.width = '800px';
+//     document.getElementsByClassName('test').style.width = '600px';
+//     var touchstart_bar = 0;
+//     var touchmove_bar = 0;
+//     var touchstart_flg = false;
+//     el = window;
+     
+//     //タッチの場合
+//     el.addEventListener('touchstart',function(e){
+//         touchstart_bar = 0;
+//         touchmove_bar = 0;
+//         //2本指だったらAndroidではgesturestartは使えない
+//         if(e.touches.length > 1){
+//             //絶対値を取得
+//             w_abs_start = Math.abs(e.touches[1].pageX - e.touches[0].pageX);
+//             h_abs_start = Math.abs(e.touches[1].pageY - e.touches[0].pageY);
+//             //はじめに2本指タッチした時の面積
+//             touchstart_bar = w_abs_start*h_abs_start;
+//         }
+//     },false);
+     
+//     //画像を一本指でタッチした場合だけ画像を動かす
+//     test.addEventListener('touchstart',function(e){
+//         if(e.touches.length == 1)touchstart_flg = true;
+//     },false);
+ 
+//     //ムーブの場合
+//     el.addEventListener('touchmove', function(e) {
+//         //2本指だったらAndroidではgesturestartは使えない
+//         if(e.touches.length > 1){
+//             //絶対値を取得
+//             w_abs_move = Math.abs(e.touches[1].pageX - e.touches[0].pageX);
+//             h_abs_move = Math.abs(e.touches[1].pageY - e.touches[0].pageY);
+//             //ムーブした時の面積
+//             touchmove_bar = w_abs_move*h_abs_move;
+//             //はじめに2タッチ面積からムーブした時の面積を引く
+//             area_bar = touchstart_bar-touchmove_bar;
+//             if(area_bar<0){//拡大する
+//                 ratio *= 1.1;
+//             }
+//             else if(area_bar>0){//縮小する
+//                 //if(ratio>0.1)ratio *= 0.9;
+//                 ratio *= 0.9;
+//             }
+//             test.width = w*ratio;
+//             test.height = h*ratio;
+//         }
+//         else if(touchstart_flg){
+//             var move_x = e.touches[0].pageX-(w*ratio)/2;
+//             var move_y = e.touches[0].pageY-(h*ratio)/2;
+//             test.style.position = 'fixed';
+//             test.style.left = String(move_x)+'px';
+//             test.style.top = String(move_y)+'px';
+//         }
+//     });
+     
+//     //タッチの終了
+//     el.addEventListener('touchend',function(e){
+//         touchstart_flg = false;
+//     },false);
+//     //タッチの中断
+//     el.addEventListener('touchcancel',function(e){
+//         touchstart_flg = false;
+//     },false);
+// }
 
-// (function() {
-//     'use strict';
+// 'use strict';
 
-//     var
+
+// var
 //         elAudio, elButton, elGain, elGainValue, setGain,
 //         ctx, gain, mediaElementSource, isPlaying;
 
-//     elAudio     = document.getElementById('audio');
-//     elButton    = document.getElementById('button');
-//     elGain      = document.getElementById('gain');
+//         //音源 
+// 	elAudio = document.getElementById('audio');
+// 	// range
+// 	elGain = document.getElementById('gain');
+// 	// 音量の値
 //     elGainValue = document.getElementById('gain-value');
 
-//     // コンテキストを生成
-//     window.AudioContext = window.AudioContext || window.webkitAudioContext;
-//     ctx = new AudioContext();
+// window.AudioContext = window.AudioContext || window.webkitAudioContext;
+// ctx = new AudioContext();
 
-//     // 各AudioNodeを生成
-//     mediaElementSource = ctx.createMediaElementSource(elAudio);
-//     gain = ctx.createGain();
+// mediaElementSource = ctx.createMediaStreamDestination(elAudio);
+// gain = ctx.createGain();
 
-//     // 中間処理（音量調整処理）を表すAudioNodeが持つAudioParamに
-//     // input要素の値を代入。表示にも値を反映する
-//     setGain = function() {
-//         gain.gain.value = elGainValue.innerText = elGain.value;
-//     };
-//     setGain();
+// setGain = function(){
+//     gain.gain.value = elGainValue.innerText = elGain.value;
+// };
+// setGain();
 
-//     // 音源を表すAudioNodeを、中間処理（音量調整処理）を表すAudioNodeに接続
-//     mediaElementSource.connect(gain);
-//     // 中間処理を表すAudioNodeを、最終出力を表すAudioNodeに接続
-//     gain.connect(ctx.destination);
+// mediaElementSource.connect(gain);
+// gain.connect(ctx.destination);
 
-//     // DOMへのイベント登録
-//     document.querySelector("#button").addEventListener('click', function() {
-//         elAudio[!isPlaying ? 'play' : 'pause']();
-//         isPlaying = !isPlaying;
-//     });
-//     elGain.addEventListener('mouseup', setGain);
-// })();
+// document.querySelector(".play").addEventListener("click", () => {
+//   if (ctx.state === "suspended") {
+//     ctx.resume();
+//   }
+// //   // 出力につなげる
+// //   mediaElementSource.connect(ctx.destination);
+//   elAudio.play();
+// });
+
+// // audioElementを一時停止する
+// document.querySelector("#pause").addEventListener("click", () => {
+//   elAudio.pause();
+// });
+
+// elGain.addEventListener('mouseup', setGain);
+
+window.AudioContext = window.AudioContext || window.webkitAudioContext;
+const ctx = new AudioContext();
+
+let sampleSource;
+// 再生中のときはtrue
+let isPlaying = false;
+
+// 音源を取得しAudioBuffer形式に変換して返す関数
+async function setupSample() {
+  const response = await fetch("../sample.mp3");
+  const arrayBuffer = await response.arrayBuffer();
+  // Web Audio APIで使える形式に変換
+  const audioBuffer = await ctx.decodeAudioData(arrayBuffer);
+  return audioBuffer;
+}
+
+// AudioBufferをctxに接続し再生する関数
+function playSample(ctx, audioBuffer) {
+  sampleSource = ctx.createBufferSource();
+  // 変換されたバッファーを音源として設定
+  sampleSource.buffer = audioBuffer;
+  // 出力につなげる
+  sampleSource.connect(ctx.destination);
+  sampleSource.start();
+  isPlaying = true;
+}
+
+document.querySelector("#play").addEventListener("click", async () => {
+  // 再生中なら二重に再生されないようにする
+  if (isPlaying) return;
+  const sample = await setupSample();
+  playSample(ctx, sample);
+});
+
+// oscillatorを破棄し再生を停止する
+document.querySelector("#stop").addEventListener("click", async () => {
+  sampleSource?.stop();
+  isPlaying = false;
+});
+
 </script>
-</body>
 </html>
-

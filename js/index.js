@@ -62,9 +62,13 @@ back.addEventListener('click',function(){
         elAudio, elButton, elGain, elGainValue, setGain,
         ctx, gain, mediaElementSource, isPlaying;
 
-    elAudio     = document.getElementById('audio');
-    elButton    = document.getElementById('button');
-    elGain      = document.getElementById('gain');
+	//音源 
+	elAudio     = document.getElementById('audio');
+	// 切り替え
+	elButton    = document.getElementById('button');
+	// range
+	elGain      = document.getElementById('gain');
+	// 音量の値
     elGainValue = document.getElementById('gain-value');
 
     // コンテキストを生成
