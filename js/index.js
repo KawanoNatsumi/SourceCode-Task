@@ -19,6 +19,7 @@ const slideimage =()=>{
 
 // 「開始/停止」ボタンを押したら動きが止まる記述
 let slideid = 0;
+const playbutton = document.getElementById('startstopbtn');
 const startstop = () =>{
 	if(slideid === 0){//開始ボタンを押した時の処理内容
 	slideid = setInterval(slideimage, 1000);
@@ -27,7 +28,7 @@ const startstop = () =>{
 	slideid = 0;
 	}
 }
-document.getElementById('startstopbtn').onclick = startstop;
+playbutton.onclick = startstop;
 
 // 画像を「次へ」「戻る」ボタンで再生する記述
 const back = document.getElementById('go_back');
@@ -55,13 +56,53 @@ back.addEventListener('click',function(){
 })
 
 
+    'use strict';
+
+    var
+        elAudio, elButton, elGain, elGainValue, setGain,
+        ctx, gain, mediaElementSource, isPlaying;
+
+    elAudio     = document.getElementById('audio');
+    elButton    = document.getElementById('button');
+    elGain      = document.getElementById('gain');
+    elGainValue = document.getElementById('gain-value');
+
+    // コンテキストを生成
+    window.AudioContext = window.AudioContext || window.webkitAudioContext;
+    ctx = new AudioContext();
+
+    // 各AudioNodeを生成
+    mediaElementSource = ctx.createMediaElementSource(elAudio);
+    gain = ctx.createGain();
+
+    // 中間処理（音量調整処理）を表すAudioNodeが持つAudioParamに
+    // input要素の値を代入。表示にも値を反映する
+    setGain = function() {
+        gain.gain.value = elGainValue.innerText = elGain.value;
+    };
+    setGain();
+
+    // 音源を表すAudioNodeを、中間処理（音量調整処理）を表すAudioNodeに接続
+    mediaElementSource.connect(gain);
+    // 中間処理を表すAudioNodeを、最終出力を表すAudioNodeに接続
+    gain.connect(ctx.destination);
+
+    // DOMへのイベント登録
+    playbutton.addEventListener('click', function() {
+        elAudio[!isPlaying ? 'play' : 'pause']();
+        isPlaying = !isPlaying;
+    });
+    elGain.addEventListener('mouseup', setGain);
+
+
+
 /*****jquery*****/
-$('#slide-area').hover(
-	function(){
-		$('.hide').css('display','block');
-	},
-	
-	function(){
-		$('.hide').css('display','none');
-	}
-)
+
+// $('.volume-icon').hover(
+// 	function(){
+// 		$('.hide').css('display','block');
+// 	},
+// 	function(){
+// 		$('.hide').css('display','none');
+// 	}
+// )

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='UTF-8'>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title></title>
+	<link rel='stylesheet' href='../css/index.css'>
+	<link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" rel="stylesheet">
+	<link rel="shortcut icon" href="favicon.ico">
+</head>
+<style>
+.container {
+scroll-snap-type: x mandatory;
+  overflow: auto;
+  scroll-snap-type: x;
+ 
+}
+.area {
+  height: 100vh;
+  width: 100vw;
+  flex: none;
+  scroll-snap-align:center;
+}
+
+/* General Styling */
+body {
+  font-size: 4rem;
+  text-align: center;
+  color: #fff;
+}
+/* h1 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+.area:nth-child(even) {
+  background-color: #0db;
+}
+.area:nth-child(odd) {
+  background-color: #0bd;
+} */
+</style>
+
+<body>
+ <div class="container">
+  <div class="area">
+    <img src="../img/test1.jpg">
+  </div>
+  <div class="area">
+    <img src="../img/test2.jpg">
+  </div>
+  <div class="area">
+    <img src="../img/test3.jpg">
+  </div>
+  <div class="area">
+    <img src="../img/test4.jpg">
+  </div>
+  <div class="area">
+    <img src="../img/test5.jpg">
+  </div>
+</div>
+
+
+    <!-- <div class="snap">
+        <div>
+        <img src="../img/test1.jpg">
+        <div>
+            <img src="../img/test2.jpg">
+        </div>
+        <div>
+            <img src="../img/test3.jpg">
+        </div>
+        <div>
+            <img src="../img/test4.jpg">
+        </div>
+        <div>
+          <img src="../img/test5.jpg">
+        </div>
+      </div> -->
+    
+<script text="javascript">
+
+// (function() {
+//     'use strict';
+
+//     var
+//         elAudio, elButton, elGain, elGainValue, setGain,
+//         ctx, gain, mediaElementSource, isPlaying;
+
+//     elAudio     = document.getElementById('audio');
+//     elButton    = document.getElementById('button');
+//     elGain      = document.getElementById('gain');
+//     elGainValue = document.getElementById('gain-value');
+
+//     // コンテキストを生成
+//     window.AudioContext = window.AudioContext || window.webkitAudioContext;
+//     ctx = new AudioContext();
+
+//     // 各AudioNodeを生成
+//     mediaElementSource = ctx.createMediaElementSource(elAudio);
+//     gain = ctx.createGain();
+
+//     // 中間処理（音量調整処理）を表すAudioNodeが持つAudioParamに
+//     // input要素の値を代入。表示にも値を反映する
+//     setGain = function() {
+//         gain.gain.value = elGainValue.innerText = elGain.value;
+//     };
+//     setGain();
+
+//     // 音源を表すAudioNodeを、中間処理（音量調整処理）を表すAudioNodeに接続
+//     mediaElementSource.connect(gain);
+//     // 中間処理を表すAudioNodeを、最終出力を表すAudioNodeに接続
+//     gain.connect(ctx.destination);
+
+//     // DOMへのイベント登録
+//     document.querySelector("#button").addEventListener('click', function() {
+//         elAudio[!isPlaying ? 'play' : 'pause']();
+//         isPlaying = !isPlaying;
+//     });
+//     elGain.addEventListener('mouseup', setGain);
+// })();
+</script>
+</body>
+</html>
+

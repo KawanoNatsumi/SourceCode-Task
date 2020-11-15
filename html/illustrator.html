@@ -1,10 +1,12 @@
 <!DOCTYPE html>
+<html>
 <head>
 	<meta charset='UTF-8'>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<title></title>
 	<link rel='stylesheet' href='../css/index.css'>
 	<link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" rel="stylesheet">
+	<link rel="shortcut icon" href="favicon.ico">
 	<script
   src="https://code.jquery.com/jquery-3.5.1.js"
   integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
@@ -21,30 +23,47 @@
 			<div class="content-area">
 				<div class="content-wrap">
 					<div id="slide-area">
-						<img src="../img/test1.jpg" id="slideshow">
+						<div class="area">
+						<img src="../img/test1.jpg" id="slideshow" class="slideshow-area">
+						</div>
+						<div class="area">
+						<img src="../img/test2.jpg" id="slideshow" class="slideshow-area">
+						</div>
+						<div class="area">
+						<img src="../img/test3.jpg" id="slideshow" class="slideshow-area">
+						</div>
+						<div class="area">
+						<img src="../img/test4.jpg" id="slideshow" class="slideshow-area">
+						</div>
+						<div class="area">
+						<img src="../img/test5.jpg" id="slideshow" class="slideshow-area">
+						</div>						
 					</div>
-					<!-- <div class="slide-area">
-						<img src="../img/test1.jpg" id="slideshow">
+					<div class="play-area">
+						<div class="wrapp">
+							<div class="angle icon-left">
+								<a href="#" id="go_back"><i class="fas fa-backward fa-4x icon" title="戻る"></i></a>
+							</div>
+							<div class="angle">
+								<a href="#" id="startstopbtn"><i class="fas fa-play-circle fa-3x icon" title="再生"></i></a>
+							</div>
+							<div class="angle icon-right">
+								<a href="#" id="go_forward"><i class="fas fa-forward fa-4x icon" title="進む"></i></a>
+							</div>
+							<div class="volume-area angle">
+								<i class="fas fa-volume-up fa-2x icon volume-icon" title="音量"></i>
+								<input id="gain" class="range hide" type="range" min="0" max="3" step="0.01" value="1">
+								<span id="gain-value"></span>
+							</div>	
+						</div>
+						<audio src="../music/backmusic.mp3" id="audio" preload="auto" loop></audio>
 					</div>
-					<div class="footer-button-area">
-						<a href="#" id="go_back"><img src="../img/left.png" class="icon icon-small"></a>
-						<a href="#" id="startstopbtn"><img src="../img/play.png" class="icon"></a>
-						<a href="#" id="go_forward"><img src="../img/right.png" class="icon icon-small"></a>
-					</div> -->
-					<div class="angle angle-left hide">
-						<a href="#" id="go_back"><i class="fas fa-caret-left fa-6x icon-angle"></i></a>
-					</div>
-					<div class="angle angle-right hide">
-						<a href="#" id="go_forward"><i class="fas fa-caret-right fa-6x icon-angle"></i></a>
-					</div>
-					<div class="button-area hide">
-						<a href="#" id="startstopbtn"><i class="fas fa-play-circle fa-3x icon"></i></a>
-					</div>
-					<!-- <a href="#" id="go_forward"><i class="fas fa-volume-up fa-2x fa-pull-right icon"></i></a> -->
 				</div>
-			</div>
+			</div>				 -->
 		</div>
 	</div>
+	<!-- </div> -->
 <script type="text/javascript" src="../js/index.js"></script>
+
 </body>
 </html>
